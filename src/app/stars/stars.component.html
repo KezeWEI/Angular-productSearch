@@ -1,0 +1,14 @@
+<!-- first way(my way) -->
+<!-- <p>
+        <span *ngFor="let item of number" >
+            <span *ngIf="item" class="glyphicon glyphicon-star"></span>
+            <span *ngIf="!item" class="glyphicon glyphicon-star glyphicon-star-empty"></span>
+        </span>
+</p> -->
+
+<!-- second way -->
+
+<p>
+    <span *ngFor="let item of number" class="glyphicon glyphicon-star " [class.glyphicon-star-empty]="!item" ></span>
+    <span class="pull-right">{{stars}}</span>
+</p>

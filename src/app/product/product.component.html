@@ -1,0 +1,14 @@
+<div class="col-md-4 col-md-4 col-md-4" *ngFor="let item of productlist">
+    <div class="thumbnail">
+            <img class="images" [src]="item.image" alt="">
+            <hr>
+        <div class="caption">
+            <h4 class="pull-right">{{item.price}}/€</h4>
+            <h4><a href="">{{item.title}}</a></h4>
+            <p>{{item.commentaire}}</p>
+        </div>
+        <div>
+            <app-stars [stars]="item.stars"></app-stars>
+        </div>
+    </div>
+</div>
