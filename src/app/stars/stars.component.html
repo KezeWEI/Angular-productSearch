@@ -9,6 +9,8 @@
 <!-- second way -->
 
 <p>
-    <span *ngFor="let item of number" class="glyphicon glyphicon-star " [class.glyphicon-star-empty]="!item" ></span>
-    <span class="pull-right">{{stars}}</span>
+    <span *ngFor="let item of number; let i = index" class="glyphicon glyphicon-star " [class.glyphicon-star-empty]="!item" 
+    (click)="clickstar(i)"></span>
+    
+    <span > {{stars | number: '1.1-1'}} stars</span>
 </p>

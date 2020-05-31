@@ -1,10 +1,22 @@
-<div class="col-md-4 col-md-4 col-md-4" *ngFor="let item of productlist">
+<div class="row"> 
+    <!-- Full line -->
+    <div class="col-sm-12">
+        <div class="form-group">
+            <!-- A type de bootstrap -->
+            <input class="form-control" placeholder="Please input the title of the product"
+            [formControl]="titleFilter">
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-4 col-md-4 col-md-4" *ngFor="let item of productlist| filter:'title':keyword; let key = index;"  >
     <div class="thumbnail">
             <img class="images" [src]="item.image" alt="">
             <hr>
         <div class="caption">
             <h4 class="pull-right">{{item.price}}/€</h4>
-            <h4><a href="">{{item.title}}</a></h4>
+            <h4><a [routerLink]="['/product-detail',key+1]" routerLinkActive="router-link-active" >{{item.title}}</a></h4>
             <p>{{item.commentaire}}</p>
         </div>
         <div>

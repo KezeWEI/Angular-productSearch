@@ -1,0 +1,41 @@
+<div class="thumbnail">
+    <img [src]="item.image" alt="">
+    <hr>
+    <div class="caption">
+        <h4>{{item.title}}</h4>
+        <h4 class="pull-right">Price: {{item.price}}/€</h4>
+        <p>Description: {{item.commentaire}}</p>
+        <div>
+            <p>{{comments.length}} comments</p>
+            <p>
+                <app-stars [stars]="item.stars"></app-stars>
+            </p>
+        </div>
+    </div>
+
+    
+</div>
+
+
+<div class="well">
+    <div>
+        <button class="btn btn-success" (click)="hiddenComment=!hiddenComment">Add comment</button>
+        <div [hidden]="hiddenComment">
+            <app-stars [readonly]="false" [(stars)]="newstars" ></app-stars>
+            <div>
+                <textarea [(ngModel)]="newcomment"></textarea>
+            </div>
+            <button class="btn" (click)="addcomment()">Submit</button>
+        </div>
+    </div>
+    <div class="row" *ngFor="let comment of comments">
+        <hr>
+        <div class="col-md-12">
+            <app-stars [stars]="comment.stars"></app-stars>
+            <span>Client: {{comment.name}}</span>
+            <span class="pull-right">Time: {{comment.date}}</span>
+            <p></p>
+            <p>{{comment.commentaire}}</p>
+        </div>
+    </div>
+</div>
